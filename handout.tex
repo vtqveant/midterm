@@ -1,0 +1,90 @@
+\documentclass[10pt]{article} 
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsfonts,amsmath,amsthm,amscd,mathtext}
+
+\usepackage[a4paper]{geometry} 
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+
+\sloppy
+\clubpenalty=10000
+\widowpenalty=10000
+
+%%% оформление заголовков глав, секций и подсекций
+
+\usepackage{titlesec}
+
+\makeatletter
+  \renewcommand{\section}{\@startsection{section}{1}{5.5ex}{-3.5ex plus -1ex minus -.2ex}{3.2ex plus.2ex}{\raggedright\hyphenpenalty=10000\normalfont\bfseries}}
+\makeatother
+
+\usepackage{indentfirst}      % красная строка
+\setlength{\parindent}{5.5ex} % 5 символов
+
+%%% math env
+
+\newtheoremstyle{example-style}% name
+{10pt}  % space above 
+{10pt}  % space below 
+{}     % body font
+{\parindent}  % indent 
+{\bfseries}  % theorem head font
+{.}  % punctuation after theorem head
+{.5em}  % space after theorem head 
+{}  % theorem head spec (can be left empty, meaning 'normal')
+
+\theoremstyle{example-style}
+\newtheorem{example}{Задание}
+
+\usepackage[nosolutionfiles]{answers}
+\Newassociation{sol}{Solution}{ans}
+
+
+\begin{document} 
+
+\title{Анализ текстов на естественных языках\ \\{\large Контрольная работа}}
+\author{}
+\date{}
+
+\maketitle
+
+\Opensolutionfile{ans}[ans1]
+
+
+\begin{example}
+Дан язык $L = \{aa, bb, abab, baba, aaaa, bbbb\}$ над алфавитом $\Sigma = \{a, b\}$. Вычислить оценки максимального правдоподобия для параметров биграммной модели со сглаживанием по схеме ``+1''.
+\end{example}
+
+\begin{example}
+Вычислить вероятность строки $abaaba$ с помощью биграммной модели, построенной в задании 1.
+\end{example}
+
+
+\begin{example}
+Решается задача аннотирования гласных и согласных в словах переменной длины над алфавитом $\Sigma = \{a, b, c\}$, набор помет $T = \{C, V\}$.
+Обучающая выборка $(\mathcal{X}, \mathcal{Y}) = \{(a, V), (b, C), (ab, VC), (ba, CV), (abb, VCC), (abba, VCCV) \}$. Найти наиболее вероятную аннотацию для строки $bbaabb$ в соответствии с построенной моделью.
+\end{example}
+
+
+\begin{example}
+Требуется построить систему автоматической расстановки переносов для русского языка на основе скрытой марковской модели. Выпишите спецификацию модели.
+\end{example}
+
+\begin{example}
+Дана вероятностная контекстно-свободная грамматика $\langle N, \Sigma, R, S\rangle$, где 
+\begin{itemize}
+	\item $N = \{S, A, B\}$
+	\item $\Sigma = \{a, b\}$
+	\item $R = \{ S \to AB, A \to B, A \to a, B \to b \}$
+	\item $q(S \to A) = 1.0$, $q(A \to B) = 0.1$, $q(A \to a) = 0.9$, $q(B \to b) = 1.0$
+\end{itemize}
+
+Найти наилучший (наиболее вероятный) разбор для строки $abb$
+\end{example}
+
+\Closesolutionfile{ans}
+
+
+\end{document}
